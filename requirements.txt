@@ -5,3 +5,4 @@ plotnine
 folium
 streamlit-folium
 matplotlib
+seaborn
