@@ -20,7 +20,6 @@ How to run:
 """
 
 # --- Imports ---
-from plotnine import aes
 import streamlit as st   # Streamlit: turns Python scripts into interactive web apps
 import pandas as pd       # Pandas: used for loading, filtering, and analyzing tabular data
 import folium             # Folium: creates interactive Leaflet.js maps from Python
