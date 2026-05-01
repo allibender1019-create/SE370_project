@@ -29,6 +29,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit.components.v1 as components #ChatGPT. We put in our jupyter notebook code into ChatGPT as well as this python code shell to figure out what we needed to do to build the streamlit app. However, we ended up reverting a lot to copying and pasting code from the notebook and adjusting as necessary. The following ChatGPT in-line code has the same description. The link is provided at the end of this code.
 from plotnine import *
+from streamlit_folium import st_folium
 
 # --- Page Title & Instructions ---
 # st.title() renders large header text at the top of the page.
@@ -124,7 +125,7 @@ with tab_heatmap:
 
 #--- Tab 4: interactive map ---
 with tab_map:
-    m = folium.Map(location = [20,0], zoom_start = 2, tiles = "CartoDB Voyager")
+    m = folium.Map(location = [20,0], zoom_start = 2)
     cluster_colors = {
         0: "blue",
         1: "green",
@@ -143,5 +144,5 @@ with tab_map:
             popup = display.iloc[i]["country_name"] + ':' + display.iloc[i]["cluster_name"] + ', Most Recent GDP per Capita: $' + str(display.iloc[i]["most_recent_gdp"].round(2)) + ', Avg Yearly Temperature:' + str(display.iloc[i]["avg_yearly_temp_f"]) + '°F' + ', Summer Total Medals: ' + str(display.iloc[i]["summer_total_medals"]) + ', Winter Total Medals: ' + str(display.iloc[i]["winter_total_medals"]) + ' Winter Medals'
             ).add_to(m)
     m
-    st.components.html(m._repr_html_(), height=500)
+    st_folium(m)
 #Link to Chat conversation: https://chatgpt.com/share/69f113e9-3a34-83ea-8f09-e282d53c06c6
