@@ -125,7 +125,7 @@ with tab_heatmap:
 
 #--- Tab 4: interactive map ---
 with tab_map:
-    m = folium.Map(location = [20,0], zoom_start = 2)
+    m = folium.Map(location = [20,0], zoom_start = 2, tiles = "CartoDB Voyager")
     cluster_colors = {
         0: "blue",
         1: "green",
@@ -143,6 +143,5 @@ with tab_map:
             fill_opacity = 0.6,
             popup = display.iloc[i]["country_name"] + ':' + display.iloc[i]["cluster_name"] + ', Most Recent GDP per Capita: $' + str(display.iloc[i]["most_recent_gdp"].round(2)) + ', Avg Yearly Temperature:' + str(display.iloc[i]["avg_yearly_temp_f"]) + '°F' + ', Summer Total Medals: ' + str(display.iloc[i]["summer_total_medals"]) + ', Winter Total Medals: ' + str(display.iloc[i]["winter_total_medals"]) + ' Winter Medals'
             ).add_to(m)
-    m
-    components.html(m._repr_html_(), height=500)
+    st.components.v1.html(folium.Figure().add_child(m).render(), height=500)
 #Link to Chat conversation: https://chatgpt.com/share/69f113e9-3a34-83ea-8f09-e282d53c06c6
