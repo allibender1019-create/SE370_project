@@ -10,7 +10,9 @@ Required files:
     - project_clean_data.xlsx  (must be in the same folder as this script)
 
 Dependencies (install once):
-    pip install streamlit pandas folium
+    %pip install streamlit 
+    %pip install pandas 
+    %pip install folium
 
 How to run:
     1. Open a terminal and navigate (cd) to the folder containing this file.
